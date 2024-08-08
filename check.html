@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>album</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            width: 100%;
+            height: 100%;
+            min-height: 100vh;
+            background-color: rgb(18, 18, 18);
+        }
+        .heading{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+        }
+        .text{
+            display: flex;
+            justify-content: space-around;
+            align-items: start;
+            flex-direction: column;
+            width: 50%;
+            /* margin-left: 7vw; */
+            position: relative;
+            left: 9vw;
+            color: #fff;
+        }
+        .image{
+            width: 50%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(18, 18, 18);
+
+        }
+        .logo-text{
+            color: #fff;
+            font-size: 2rem;
+            margin: 5px;
+            padding: 5px;
+            height: max-content;
+            width: max-content;
+        }
+        .bride-groom{
+            font-size: 4rem;
+            color: #fff;
+            font-style: italic;
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            flex-direction: column;
+            text-align: start;
+        }
+        .arrow{
+            color: #fff;
+        }
+        .btn{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: .7rem;
+            cursor: pointer;
+        }
+        .btn:hover .arrow{
+            margin-left: 15px;
+        }
+        .btn a span{
+            font-size: 1.3rem;
+        }
+        .bt a img{
+            height: 40px;
+        }
+        .btn a{
+            color: #fff;
+            text-decoration: none;
+            font-style: italic;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: .7rem;
+            cursor: pointer;
+        }
+        .arrow{
+            transition: all .7s ease;
+        }
+
+        .carousel {
+            position: relative;
+            width: 80%;
+            height: 80%;
+            margin: 0 10%;
+            overflow: hidden;
+            /* border-radius: 10px; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .carousel-inner {
+            display: flex;
+            width: 110%;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-item {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        .carousel-item img {
+            width: 110%;
+            height: auto;
+            /* border-radius: 10px; */
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <div class="text">
+            <div class="logo-text"><p>Aarambh Photography</p></div>
+            <div class="bride-groom">
+                <span>PRANJAL
+                    <span>WEDS</span>
+                </span>
+                <span>PRAVIN</span>
+            </div>
+            <div class="btn">
+                <a href="al">
+
+                    <span>View Photos</span>
+                    <img class="arrow" src="icons8-arrow-50.png" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="image">
+            <div class="carousel">
+                <div class="carousel-inner" id="carouselInner">
+                    <!-- Images will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const carouselInner = document.getElementById("carouselInner");
+
+            // Example data (replace with your actual data)
+            const weddingAlbum = [
+                { imageSrc: "a6slider1.jpg" },
+                { imageSrc: "a6slider2.jpg" },
+                { imageSrc: "a6slider3.jpg" },
+                { imageSrc: "a6slider4.jpg" },
+                { imageSrc: "a6slider5.jpg" },
+                { imageSrc: "a6slider6.jpg" },
+                { imageSrc: "a6slider7.jpg" },
+            ];
+
+            // Duplicate the first item and append it to the end
+            weddingAlbum.push({ ...weddingAlbum[0] });
+
+            // Loop through weddingAlbum and create HTML for each item
+            weddingAlbum.forEach(item => {
+                const carouselItem = document.createElement("div");
+                carouselItem.classList.add("carousel-item");
+
+                const img = document.createElement("img");
+                img.src = item.imageSrc; // Replace with actual image source
+                img.alt = "Bride or Groom";
+
+                const caption = document.createElement("div");
+                caption.classList.add("carousel-caption");
+                caption.textContent = item.text;
+
+                carouselItem.appendChild(img);
+                carouselItem.appendChild(caption);
+                carouselInner.appendChild(carouselItem);
+            });
+
+            let index = 0;
+            const totalItems = weddingAlbum.length;
+            function showNextSlide() {
+                index++;
+                if (index >= totalItems) {
+                    carouselInner.style.transition = 'none';
+                    carouselInner.style.transform = 'translateX(0)';
+                    index = 1; // Reset to the second item (first duplicate)
+                    setTimeout(() => {
+                        carouselInner.style.transition = 'transform 0.5s ease-in-out';
+                        carouselInner.style.transform = `translateX(-${index * 100}%)`;
+                    }, 0);
+                } else {
+                    carouselInner.style.transform = `translateX(-${index * 100}%)`;
+                }
+            }
+
+            setInterval(showNextSlide, 3000); // Change slide every 3 seconds
+        });
+    </script>
+</body>
+</html>
