@@ -1,0 +1,372 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Brandon Grot W01 Light";
+  }
+  
+  body,
+  html {
+    /* height: 100%;
+      width: 100%; */
+  }
+  
+  body {
+    position: relative;
+    width: 100vw;
+    height: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #fff;
+    z-index: 1;
+    scroll-behavior: smooth;
+    scroll-behavior: smooth;
+  }
+  .contact-us-logo {
+    position: fixed;
+    right: 0;
+    z-index: 1000;
+    top: 120px;
+    background-color: white;
+    margin: 5px;
+    padding: 5px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-style: italic;
+    color: #fff;
+    background-color: black;
+    letter-spacing: 1px;
+    border-radius: 10px;
+  }
+  .main-website {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .cursor {
+    cursor: pointer;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  
+  .sticky-nav {
+    position: -webkit-sticky; /* For Safari */
+    position: sticky;
+    top: 0;
+    z-index: 100; /* Ensure it stays above other elements */
+    width: 100%;
+  }
+  
+  .logo img {
+    height: 5.2rem;
+    display: block;
+    align-self: center;
+    /* filter: drop-shadow(2px 2px 20px red); */
+  }
+  
+  .menubar {
+    display: flex;
+    margin: 10px;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+  }
+  
+  .option-menu {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1vw;
+  }
+  
+  .option-menu-logo {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    flex-wrap: nowrap;
+    font-size: large;
+    font-weight: 500;
+  }
+  
+  #check {
+    display: none;
+  }
+  .social-menu a span {
+    display: block;
+    height: 20px;
+    /* Adjust the height as needed */
+    width: 20px;
+    /* Adjust the width as needed */
+}
+
+.fa-regular {
+    height: 20px;
+    width: 20px;
+}
+
+.social-menu a i {
+    font-size: 20px;
+    /* Adjust the font size as needed */
+    color: grey;
+    transition: all 1s ease;
+}
+
+.social-menu a:hover i {
+    color: black;
+}
+
+.photo-selection:hover .photo-selection-text {
+    visibility: visible;
+}
+
+.photo-selection-text {
+    display: hidden;
+    visibility: hidden;
+    position: absolute;
+    left: 2.2rem;
+    /* transition: all 1s ease-in-out; */
+}
+
+.photo-selection {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+  
+  a {
+    color: grey;
+    text-decoration: none;
+    margin: 5px;
+    padding: 5px;
+    font-family: none;
+  }
+  
+  .active {
+    color: black;
+  }
+  
+  .animated-underline {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .animated-underline::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background-color: black;
+    transition: width 0.4s, left 0.4s;
+  }
+  
+  .animated-underline:hover {
+    color: black;
+  }
+  
+  .animated-underline:hover::after {
+    left: 0;
+    width: 100%;
+  }
+  
+  .bottom-box-shadow {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    background-color: white;
+    text-align: center;
+  }
+  
+  .social-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1vw;
+  }
+  
+  .menu-icon {
+    display: none;
+    cursor: pointer;
+  }
+  
+  .social-menu img {
+    margin: 5px;
+  }
+  
+  .icons {
+    font-size: 2.8rem;
+    right: 5%;
+    color: black;
+    cursor: pointer;
+    display: none;
+  }
+
+
+  
+
+  .gallery {
+      margin: auto;
+      align-self: center;
+      width: 60vw;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      /* padding: 20px; */
+      justify-content: center;
+      align-self: center;
+  }
+
+  .gallery-item {
+      text-align: center;
+      
+  }
+
+  .gallery-item img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      transition: all .8s ease;
+      margin-bottom: 25px;
+
+  }
+
+  .gallery-item p {
+      /* margin: 10px 0; */
+      font-weight: bold;
+      margin: 0 0 25px 0;
+  }
+  .gallery-item img:hover {
+      transform: scale(.9); /* Scale up on hover */
+      z-index: 1; /* Ensure image stays on top */
+  }
+
+
+  @media (min-width: 768px) {
+
+      .gallery {
+          width: 70vw;
+          grid-template-columns: repeat(3, 1fr);
+      }
+      .gallary-img{
+        height:10vw ;
+      }
+  }
+
+  @media (max-width: 490px) {
+
+      .gallery {
+          width: 70vw;
+          grid-template-columns: repeat(1, 1fr);
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          right: 10px;
+      }
+
+  }
+
+  @media (min-width: 1024px) {
+      .gallery {
+          grid-template-columns: repeat(3, 1fr);
+      }
+  }
+
+
+
+
+  @media (max-width: 1080px) {
+    .option-menu-logo {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .social-menu {
+      display: none;
+    }
+    .option-menu {
+      position: relative;
+      right: 2rem;
+    }
+    .logo {
+      position: relative;
+      left: 2rem;
+    }
+  }
+  
+@media (max-width: 820px) {
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    .icons {
+      display: inline-flex;
+    }
+    #check:checked ~ .icons #menu-icon {
+      display: none;
+    }
+    .icons #close-icon {
+      display: none;
+    }
+    #check:checked ~ .icons #close-icon {
+      display: block;
+    }
+    .option-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background: rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      box-shadow: 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: 0.3s ease-in-out;
+      flex-direction: column;
+    }
+    .menu-icon {
+      display: block;
+    }
+    #check:checked ~ .option-menu {
+      height: 21.7rem;
+    }
+    .option-menu a {
+      display: block;
+      font-size: 1.1rem;
+      /* padding: 1.5rem 0; */
+      text-align: center;
+      opacity: 0;
+      transform: translateY(-50px);
+      transition: 0.3s ease;
+    }
+    #check:checked ~ .option-menu a {
+      transform: translateY(0);
+      opacity: 1;
+      transition-delay: calc(0.15s * var(--i));
+    }
+  }
+  html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden; 
+    overflow-y: auto;   
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: #fff;
+    z-index: 1;
+    scroll-behavior: smooth;
+}

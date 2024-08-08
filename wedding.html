@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding page</title>
+    <link rel="stylesheet" href="wedding.css">
+    
+    <link href="https://db.onlinewebfonts.com/c/6dd2f2510b4a00a5461b2455928209c2?family=Brandon+Grot+W01+Light"
+        rel="stylesheet">
+    <link href="https://unpkg.com/boxicons/css/boxicons.min.css" rel="stylesheet">
+     
+    <link href="https://db.onlinewebfonts.com/c/6dd2f2510b4a00a5461b2455928209c2?family=Brandon+Grot+W01+Light"
+        rel="stylesheet">
+    <link href="https://unpkg.com/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://db.onlinewebfonts.com/c/6dd2f2510b4a00a5461b2455928209c2?family=Brandon+Grot+W01+Light"
+        rel="stylesheet">
+    <link href="https://unpkg.com/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    /* height: 100%; */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+    </style>
+</head>
+<body>
+    <header class="sticky-nav">
+        <nav class="bottom-box-shadow">
+            <div class="menubar">
+                <div class="social-menu">
+                    <a href="" class="yt">
+
+                        <span><i class="fa-brands fa-youtube"></i></span>
+                    </a>
+                    <a href="" class="insta">
+
+                        <span><i class="fa-brands fa-instagram"></i></span>
+                    </a>
+                    <a href="" class="fb">
+
+                        <span><i class="fa-brands fa-facebook"></i></span>
+                    </a>
+
+                    <a href="selection.html" class="photo-selection">
+
+                        <span><i class="fa-regular fa-user"></i></span><span class="photo-selection-text">selection
+                            login</span>
+                    </a>
+                </div>
+
+                <div class="option-menu-logo">
+                    <div class="logo">
+                        <img src="Aarambh_New_PNG_2[1].png" alt="Logo">
+                    </div>
+                    <input type="checkbox" id="check">
+                    <label for="check" class="icons">
+                        <i class='bx bx-menu' id="menu-icon"></i>
+                        <i class='bx bx-x' id="close-icon"></i>
+                    </label>
+
+                    <div class="option-menu">
+                        <a class="cursor animated-underline" style="--i:0" href="index.html">Home</a>
+                        <a class="animated-underline" style="--i:1" href="wedding.html">Wedding</a>
+                        <a class="animated-underline" style="--i:2" href="#">Films</a>
+                        <a class="animated-underline" style="--i:3" href="#">Pre-Weddings</a>
+                        <a class="animated-underline" style="--i:4" href="testimonials.html">Testimonials</a>
+                        <a class="animated-underline" style="--i:5" href="#">Contact us</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="gallery" id="gallery">
+        <!-- Images will be dynamically inserted here -->
+    </div>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const galleryContainer = document.getElementById("gallery");
+
+    // Example data (replace with your actual data)
+    const weddingAlbum = [
+        { imageSrc: "slider2.jpg", text: "Pranali Weds Karan", link: "album1.html" },
+        { imageSrc: "a2slider1.jpg", text: "Nikita Weds Atul", link: "album2.html" },
+        { imageSrc: "img1.jpg", text: "Gayatri Weds Yogesh", link: "album3.html" },
+        { imageSrc: "a4slider1.jpg", text: "Pooja Weds Mayur", link: "album4.html" },
+        { imageSrc: "a5slider1.jpg", text: "Sonali Weds Vikas", link: "album5.html" },
+        { imageSrc: "a6slider1.jpg", text: "Pravin Weds Pranjal", link: "album6.html" },
+        { imageSrc: "slider2.jpg", text: "Pranali Weds Karan", link: "album1.html" },
+        { imageSrc: "a2slider1.jpg", text: "Nikita Weds Atul", link: "album2.html" },
+        { imageSrc: "img1.jpg", text: "Gayatri Weds Yogesh", link: "album3.html" },
+        { imageSrc: "a4slider1.jpg", text: "Pooja Weds Mayur", link: "album4.html" },
+        { imageSrc: "a5slider1.jpg", text: "Sonali Weds Vikas", link: "album5.html" },
+        { imageSrc: "a6slider1.jpg", text: "Pravin Weds Pranjal", link: "album6.html" },
+        // Add more objects for additional photos
+    ];
+
+    // Loop through weddingAlbum and create HTML for each item
+    weddingAlbum.forEach(item => {
+        const galleryItem = document.createElement("div");
+        galleryItem.classList.add("gallery-item");
+
+        const anchor = document.createElement("a");
+        anchor.href = item.link; // Set the link URL here
+        anchor.target = "_blank"; // Opens link in a new tab
+
+        const img = document.createElement("img");
+        img.src = item.imageSrc; // Replace with actual image source
+        img.alt = "Bride or Groom";
+
+        const p = document.createElement("p");
+        p.textContent = item.text;
+
+        anchor.appendChild(img);
+        galleryItem.appendChild(anchor);
+        galleryItem.appendChild(p);
+        galleryContainer.appendChild(galleryItem);
+    });
+    ScrollReveal({
+            reset: true,
+            distance: "50px",
+            duration: 2000,
+            delay: 100
+        });
+
+        ScrollReveal().reveal('.gallery-item', { origin: 'bottom'});
+});
+
+    </script>
+     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const activePage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('nav a');
+
+            // Set the active class based on the current page
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === activePage) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Add click event listeners to all nav links
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    // Remove active class from all links
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    // Add active class to the clicked link
+                    link.classList.add('active');
+                });
+            });
+        });
+    </script>
+        
+        <script>
+            
+        
+        </script>
+
+<!--     
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const galleryContainer = document.getElementById("gallery");
+
+            // Example data (replace with your actual data)
+            const weddingAlbum = [
+                { imageSrc: "slider2.jpg", text: "Pranali Weds Karan" },
+                { imageSrc: "img1.jpg", text: "Groom's Name 1" },
+                { imageSrc: "img1.jpg", text: "Bride's Name 2" },
+                { imageSrc: "img1.jpg", text: "Groom's Name 2" },
+                { imageSrc: "img1.jpg", text: "Groom's Name 2" },
+                { imageSrc: "img1.jpg", text: "Groom's Name 2" },
+                { imageSrc: "img1.jpg", text: "Groom's Name 2" },
+                { imageSrc: "img1.jpg", text: "Groom's Name 2" },
+                { imageSrc: "img1.jpg", text: "Groom's Name 2" },
+                { imageSrc: "img1.jpg", text: "Groom's Name 2" },
+                { imageSrc: "img1.jpg", text: "Groom's Name 2" },
+                // Add more objects for additional photos
+            ];
+
+            // Loop through weddingAlbum and create HTML for each item
+            weddingAlbum.forEach(item => {
+                const galleryItem = document.createElement("div");
+                galleryItem.classList.add("gallery-item");
+
+                const img = document.createElement("img");
+                img.src = item.imageSrc; // Replace with actual image source
+                img.alt = "Bride or Groom";
+
+                const p = document.createElement("p");
+                p.textContent = item.text;
+
+                galleryItem.appendChild(img);
+                galleryItem.appendChild(p);
+                galleryContainer.appendChild(galleryItem);
+            });
+        });
+    </script> -->
+</body>
+</html>
